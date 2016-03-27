@@ -1,9 +1,6 @@
 # Make git rememember passwords for 30 minutes.
 git config --global credential.helper 'cache --timeout=1800'
 
-# Get the toolset.
-git clone https://gitlab.com/ewha_spring_2016/z_spring_2016_bash_toolset.git
-
 # Get all the class repositories.
 git clone https://gitlab.com/ewha_spring_2016/38046_01_financial_technology.git
 
