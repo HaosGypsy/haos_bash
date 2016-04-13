@@ -37,7 +37,6 @@ function display_git_directories {
 function say_hello {
     echo "Work with git directories!"
     printf "Working directory is : %s\n" $PWD
-    #ask_for_key_press_allow_quit
 }
 
 function init_program {
@@ -46,22 +45,15 @@ function init_program {
     CALLED_FROM_DIR="$PWD";
 }
 
-function show_options {
-    echo "hi"
-}
-
-function update_repos {
+function pull_the_repos {
     for git_directory in "${GIT_DIRS[@]}"
     do
       cd $git_directory;
       cd ..
-      echo "$PWD";
-      
-      ls
+
+      git pull
       
       cd $CALLED_FROM_DIR;
-      #echo "${git_directory}";
-      ##ls
     done
 }
 
@@ -70,16 +62,11 @@ function add_all_commit_all_push_all {
     do
       cd $git_directory;
       cd ..
-      echo "$PWD";
-      
+     
       git add .
       git commit -m 'Wholesale commit...(this has got to change!)'
       git push --all
-      ##ls
-      
       cd $CALLED_FROM_DIR;
-      #echo "${git_directory}";
-      ##ls
     done
     
 }
@@ -97,7 +84,7 @@ function run_program_loop {
         
         case $users_choice in
             a)
-               update_repos
+               pull_the_repos
                ;;
             b)
                add_all_commit_all_push_all
