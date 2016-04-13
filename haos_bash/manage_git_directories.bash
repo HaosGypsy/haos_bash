@@ -45,7 +45,7 @@ function init_program {
     CALLED_FROM_DIR="$PWD";
 }
 
-function pull_the_repos {
+function pull_all_repos {
     for git_directory in "${GIT_DIRS[@]}"
     do
       cd $git_directory;
@@ -56,6 +56,7 @@ function pull_the_repos {
       cd $CALLED_FROM_DIR;
     done
 }
+
 
 function add_all_commit_all_push_all {
     for git_directory in "${GIT_DIRS[@]}"
@@ -68,8 +69,20 @@ function add_all_commit_all_push_all {
       git push --all
       cd $CALLED_FROM_DIR;
     done
-    
 }
+
+function show_status_of_all_repos {
+    for git_directory in "${GIT_DIRS[@]}"
+    do
+      cd $git_directory;
+      cd ..
+
+      git status
+      
+      cd $CALLED_FROM_DIR;
+    done
+}
+
 
 function run_program_loop {
     populate_array
@@ -84,13 +97,13 @@ function run_program_loop {
         
         case $users_choice in
             a)
-               pull_the_repos
+               pull_all_repos
                ;;
             b)
                add_all_commit_all_push_all
                ;;
             c)
-               display_git_directories
+               show_status_of_all_repos
                ;;
             d)
                display_git_directories
