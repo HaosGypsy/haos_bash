@@ -1,3 +1,37 @@
+function run_program_loop {
+    populate_array
+    local users_choice
+    
+    local user_wants_to_quit="false"
+    
+    while [ "$user_wants_to_quit" != "true" ]
+    do
+        read -p "Enter your choice : " users_choice
+        printf "You choose : %s\n" $users_choice
+        
+        case $users_choice in
+            a)
+               pull_all_repos
+               ;;
+            b)
+               add_all_commit_all_push_all
+               ;;
+            c)
+               show_status_of_all_repos
+               ;;
+            d)
+               display_git_directories
+               ;;
+            q)
+                user_wants_to_quit="true"
+                ;;
+            *)
+                echo "Do not understand input!";
+        esac
+    done
+    
+}
+
 function ask_for_key_press {
     local user_input
     read -n1 -r -p "Any key to continue : " user_input
@@ -84,39 +118,6 @@ function show_status_of_all_repos {
 }
 
 
-function run_program_loop {
-    populate_array
-    local users_choice
-    
-    local user_wants_to_quit="false"
-    
-    while [ "$user_wants_to_quit" != "true" ]
-    do
-        read -p "Enter your choice : " users_choice
-        printf "You choose : %s\n" $users_choice
-        
-        case $users_choice in
-            a)
-               pull_all_repos
-               ;;
-            b)
-               add_all_commit_all_push_all
-               ;;
-            c)
-               show_status_of_all_repos
-               ;;
-            d)
-               display_git_directories
-               ;;
-            q)
-                user_wants_to_quit="true"
-                ;;
-            *)
-                echo "Do not understand input!";
-        esac
-    done
-    
-}
 
 say_hello
 init_program
