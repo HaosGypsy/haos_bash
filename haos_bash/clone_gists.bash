@@ -1,6 +1,6 @@
 :<<EOF
 EOF
-
+# ToDo: Make it name the folders with the gists name rather then its ID.
 # This clones each gist into a folder using the gists ID to name the folder.
 gist -l | grep -Eo '(http|https)://[^ ]+' | awk '{print $1".git"}' | while read -r line; do git clone "$line"; done
 
