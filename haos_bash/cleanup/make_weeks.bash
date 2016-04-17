@@ -67,10 +67,10 @@ function create_list_of_weeks {
 }
  
 
-date_to_start_from="3-1-16"
-time_of_class="9:30"
+date_to_start_from="3-7-16"
+time_of_class="14:00"
 number_of_weeks="15"
-name_of_class="FINANCIAL TECHNOLOGY"
+name_of_class="SMART SOFTWARE PROJECT"
 directory_name="week_"
 
 count=1
