@@ -5,6 +5,8 @@
 # ToDo : figure out some way to only work on the user's repositories and ignore 
 # any repos that were clone from sources without push rights.
 
+# ToDo : Have UI display menu options.
+
 function run_program_loop {
     populate_array
     local users_choice
@@ -98,7 +100,6 @@ function pull_all_repos {
     done
 }
 
-
 function add_all_commit_all_push_all {
     for git_directory in "${GIT_DIRS[@]}"
     do
@@ -123,8 +124,6 @@ function show_status_of_all_repos {
       cd $CALLED_FROM_DIR;
     done
 }
-
-
 
 say_hello
 init_program
