@@ -1,3 +1,10 @@
+# This script attempts to add, commit, and push to remote, all the git repos it finds.
+
+# DO NOT USE UNLESS YOU UNDERSTAND WHAT IT DOES!! READ THE CODE!! IT CAN CAUSE PROBLEMS!!
+
+# ToDo : figure out some way to only work on the user's repositories and ignore 
+# any repos that were clone from sources without push rights.
+
 function run_program_loop {
     populate_array
     local users_choice
