@@ -42,6 +42,9 @@ function run_program_loop {
             d)
                display_git_directories
                ;;
+            e)
+               add_all_commit_all_no_push
+               ;;
             q)
                 user_wants_to_quit="true"
                 ;;
@@ -123,6 +126,19 @@ function add_all_commit_all_push_all {
       git add .
       git commit -m "$COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT"
       git push --all
+      cd $CALLED_FROM_DIR;
+    done
+}
+
+function add_all_commit_all_no_push {
+    for git_directory in "${GIT_DIRS[@]}"
+    do
+      cd $git_directory;
+      cd ..
+     
+      git add .
+      git commit -m "$COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT"
+      # git push --all
       cd $CALLED_FROM_DIR;
     done
 }
