@@ -18,6 +18,10 @@ EOF
 
 # ToDo : Have UI display menu options.
 
+# ToDo : Have UI display commit message.
+
+# ToDo : Designate and set up an arguement so the UI can be bypassed.
+
 function run_program_loop {
     populate_array
     local users_choice
