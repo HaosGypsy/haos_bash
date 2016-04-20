@@ -140,7 +140,7 @@ function show_status_of_all_repos {
 }
 
 say_hello
-init_program
+init_program "$1"
 run_program_loop
 
 :<<EOF
