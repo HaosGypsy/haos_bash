@@ -11,18 +11,19 @@ EOF
 
 # Status : Being developed!
 
-# DO NOT USE UNLESS YOU UNDERSTAND WHAT IT DOES!! READ THE CODE!! IT CAN CAUSE PROBLEMS!!
+# DO NOT USE UNLESS YOU UNDERSTAND WHAT IT DOES!! READ THE CODE!! IT WILL MOST LIKELY CAUSE PROBLEMS!!
 
-# ToDo : figure out some way to only work on the user's repositories and ignore 
-# any repos that were clone from sources without push rights.
+# ToDo : figure out some way to only work on the user's repositories and ignore any repos that were clone from sources without push rights.
 
-# Setup machine generate commit message to use Cloud9 enviornmental variables or some other value relavent to the machine generating and/or the repository itself.
+# ToDo : Setup machine generate commit message to use Cloud9 enviornmental variables or some other value relavent to the machine generating and/or the repository itself.
 
 # ToDo : Have UI display menu options.
 
 # ToDo : Have UI display commit message.
 
 # ToDo : Designate and set up an arguement so the UI can be bypassed.
+
+# ToDo : 
 
 function run_program_loop {
     populate_array
