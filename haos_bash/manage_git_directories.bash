@@ -23,6 +23,14 @@ EOF
 
 # ToDo : Designate and set up an arguement so the UI can be bypassed.
 
+# ToDo : Have it create logs of what its done in each repo it's worked on.
+
+# ToDo : 
+# ToDo : 
+# ToDo : 
+# ToDo : 
+# ToDo : 
+# ToDo : 
 # ToDo : 
 
 function run_program_loop {
@@ -137,6 +145,8 @@ function add_all_commit_all_push_all {
     done
 }
 
+# ToDo : Remove the duplication of action in the above and below functions.
+
 function add_all_commit_all_no_push {
     for git_directory in "${GIT_DIRS[@]}"
     do
@@ -145,7 +155,6 @@ function add_all_commit_all_no_push {
      
       git add .
       git commit -m "$COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT"
-      # git push --all
       cd $CALLED_FROM_DIR;
     done
 }
