@@ -145,6 +145,8 @@ function add_all_commit_all_push_all {
     done
 }
 
+# This is a test line...
+
 # ToDo : Remove the duplication of action in the above and below functions.
 
 function add_all_commit_all_no_push {
