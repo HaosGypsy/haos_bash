@@ -16,6 +16,7 @@ EOF
 # ToDo : figure out some way to only work on the user's repositories and ignore any repos that were clone from sources without push rights.
 
 # ToDo : Setup machine generate commit message to use Cloud9 enviornmental variables or some other value relavent to the machine generating and/or the repository itself.
+# ToDo : Clean up the output!
 
 # ToDo : Have UI display menu options.
 
@@ -27,7 +28,6 @@ EOF
 # ToDo : Make output more readable.
 
 # ToDo : Offer menu chose to show repos' remote URLs.
-# ToDo : 
 # ToDo : 
 # ToDo : 
 # ToDo : 
@@ -66,6 +66,9 @@ function run_program_loop {
                #add_all_commit_all_no_push
                ;;
             
+            g)
+                cache_git_dits
+                ;;
             q)
                 user_wants_to_quit="true"
                 ;;
@@ -74,6 +77,14 @@ function run_program_loop {
         esac
     done
     
+}
+function cache_git_dits {
+    local num_minutes
+    read -p "Time in minutes to cashe the dits? : " num_minutes;
+    
+    let "num_minutes = $num_minutes * 60"
+    git config --global credential.helper "cache --timeout=$num_minutes"
+    # ToDo : Figure out how to display the timeout value and echo it back!
 }
 
 function ask_for_key_press {
