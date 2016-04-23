@@ -82,9 +82,9 @@ function cache_git_dits {
     local num_minutes
     read -p "Time in minutes to cashe the dits? : " num_minutes;
     
+    # ToDo : Figure out how to display the timeout value and echo it back!
     let "num_minutes = $num_minutes * 60"
     git config --global credential.helper "cache --timeout=$num_minutes"
-    # ToDo : Figure out how to display the timeout value and echo it back!
 }
 
 function ask_for_key_press {
