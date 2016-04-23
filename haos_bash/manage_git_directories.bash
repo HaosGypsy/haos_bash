@@ -31,7 +31,8 @@ EOF
 # ToDo : 
 # ToDo : 
 # ToDo : 
-# ToDo : 
+
+# ToDo : Abstract (is that the right word?) out the switch statement.
 
 function run_program_loop {
     populate_array
@@ -60,6 +61,11 @@ function run_program_loop {
             e)
                add_all_commit_all_no_push
                ;;
+            f)
+               display_git_directories_their_branches_and_their_status            
+               #add_all_commit_all_no_push
+               ;;
+            
             q)
                 user_wants_to_quit="true"
                 ;;
@@ -85,7 +91,6 @@ function ask_for_key_press_allow_quit {
     fi
 }
 
-
 function populate_array {
     count=0;
     GIT_DIRS=()
@@ -103,12 +108,29 @@ function display_git_directories {
     done
 }
 
+function display_git_directories_their_branches_and_their_status {
+    for git_directory in "${GIT_DIRS[@]}"
+    do
+        #printf "\n\n";
+        cd $git_directory;
+        cd ..
+        printf "\nIn : %s \n" $PWD;
+        printf "\nGIT STATUS\n";
+        git status
+        printf "\nREPOSITORY BRANCHES\n\n";
+        git branch -v
+        cd $CALLED_FROM_DIR;
+    done
+}
+
 function say_hello {
     echo "Work with git directories!"
     printf "Working directory is : %s\n" $PWD
 }
 
 function init_program {
+    clear
+    print_a_bunch_of_blank_lines 10
     count=0;
     GIT_DIRS=();
     CALLED_FROM_DIR="$PWD";
@@ -118,6 +140,22 @@ function init_program {
     else
         COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="$1"
     fi
+}
+
+function print_a_bunch_of_blank_lines {
+    
+    local num_lines_to_print=15;
+    
+    if [ ! -z "$1" ]
+    then
+        num_lines_to_print="$1"
+    fi
+    
+    for i in `seq 1 $num_lines_to_print`;
+        do
+                #printf "%s\n" "$1";    # <--- Usefull for experiments,
+                printf "\n";            # <--- comment this out to use.
+        done
 }
 
 function pull_all_repos {
@@ -144,8 +182,6 @@ function add_all_commit_all_push_all {
       cd $CALLED_FROM_DIR;
     done
 }
-
-# This is a test line...
 
 # ToDo : Remove the duplication of action in the above and below functions.
 
