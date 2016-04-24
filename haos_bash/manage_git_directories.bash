@@ -11,7 +11,8 @@ EOF
 
 # Status : Being developed! (clearly! %)
 
-# ToDo : 
+# ToDo : Figure out if it is tracking and pushing all branches.
+
 # ToDo : Signal remote when script queries for username!
 
 # DO NOT USE UNLESS YOU UNDERSTAND WHAT IT DOES!! READ THE CODE!! IT WILL MOST LIKELY CAUSE PROBLEMS!!
