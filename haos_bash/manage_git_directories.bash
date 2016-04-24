@@ -59,7 +59,7 @@ function run_program_loop {
     while [ "$user_wants_to_quit" != "true" ]
     do
         read -p "Enter your choice : " users_choice
-        printf "You choose : %s\n" $users_choice
+        printf "\nYou choose : %s\n\n" $users_choice
         
         case $users_choice in
             a)
