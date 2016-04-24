@@ -61,6 +61,9 @@ function run_program_loop {
                pull_all_repos
                ;;
             b)
+               add_all_commit_all_no_push
+               ;;
+            B)
                add_all_commit_all_push_all
                ;;
             c)
@@ -70,7 +73,7 @@ function run_program_loop {
                display_git_directories
                ;;
             e)
-               add_all_commit_all_no_push
+               echo "NO OPTION HERE!"
                ;;
             f)
                display_git_directories_their_branches_and_their_status            
@@ -89,6 +92,7 @@ function run_program_loop {
     done
     
 }
+
 function cache_git_dits {
     local num_minutes
     read -p "Time in minutes to cashe the dits? : " num_minutes;
