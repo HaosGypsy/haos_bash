@@ -40,7 +40,7 @@ EOF
 
 # ToDo : Automate production and management of gh-pages branches.
 # ToDo : Offer an option to switch all the repos that have gh-pages to that branch.
-# ToDo : 
+# ToDo : Add auto quit after input.
 # ToDo : 
 # ToDo : 
 # ToDo : 
