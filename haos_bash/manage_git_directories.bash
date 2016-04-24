@@ -28,6 +28,9 @@ EOF
 # ToDo : Make output more readable.
 
 # ToDo : Offer menu chose to show repos' remote URLs.
+
+# ToDo : Automate production and management of gh-pages branches.
+# ToDo : Offer an option to switch all the repos that have gh-pages to that branch.
 # ToDo : 
 # ToDo : 
 # ToDo : 
