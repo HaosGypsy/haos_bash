@@ -28,8 +28,13 @@ EOF
 
 # ToDo : Designate and set up an arguement so the UI can be bypassed.
 
-# ToDo : Have it create logs of what its done in each repo it's worked on.
 # ToDo : Make output more readable.
+#           - Create white spacing.
+#           - Signal errors!
+#           -
+
+#           
+# ToDo : Have it create logs of what its done in each repo it's worked on.
 
 # ToDo : Offer menu chose to show repos' remote URLs.
 
