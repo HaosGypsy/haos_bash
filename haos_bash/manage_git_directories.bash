@@ -9,7 +9,10 @@ EOF
 
 # This script attempts to add, commit, and push to remote, all the git repos it finds.
 
-# Status : Being developed!
+# Status : Being developed! (clearly! %)
+
+# ToDo : 
+# ToDo : Signal remote when script queries for username!
 
 # DO NOT USE UNLESS YOU UNDERSTAND WHAT IT DOES!! READ THE CODE!! IT WILL MOST LIKELY CAUSE PROBLEMS!!
 
@@ -31,6 +34,10 @@ EOF
 
 # ToDo : Automate production and management of gh-pages branches.
 # ToDo : Offer an option to switch all the repos that have gh-pages to that branch.
+# ToDo : 
+# ToDo : 
+# ToDo : 
+# ToDo : 
 # ToDo : 
 # ToDo : 
 # ToDo : 
