@@ -1,13 +1,7 @@
 :<<EOF
-
-# Pretty sure this is not needed!
-
-function work_with_git_directory {
-    echo "$1"
-}
 EOF
 
-# This script attempts to add, commit, and push to remote, all the git repos it finds.
+# This script performs some routine repository management tasks.
 
 # Status : Being developed! (clearly! %)
 
@@ -22,7 +16,7 @@ EOF
 # ToDo : Setup machine generate commit message to use Cloud9 enviornmental variables or some other value relavent to the machine generating and/or the repository itself.
 # ToDo : Clean up the output!
 
-# ToDo : Have UI display menu options.
+# ToDo : Have UI display menu options. (see show_options function.)
 
 # ToDo : Have UI display commit message.
 
@@ -33,7 +27,6 @@ EOF
 #           - Signal errors!
 #           -
 
-#           
 # ToDo : Have it create logs of what its done in each repo it's worked on.
 
 # ToDo : Offer menu chose to show repos' remote URLs.
@@ -43,17 +36,13 @@ EOF
 # ToDo : Add auto quit after input.
 # ToDo : 
 # ToDo : 
-# ToDo : 
-# ToDo : 
-# ToDo : 
-# ToDo : 
 
-# ToDo : Abstract (is that the right word?) out the switch statement.
+# ToDo : Abstract (is that the right word?) out the switch statement into a menu system.
 
 function run_program_loop {
     populate_array
-    local users_choice
     
+    local users_choice
     local user_wants_to_quit="false"
     
     while [ "$user_wants_to_quit" != "true" ]
@@ -61,34 +50,29 @@ function run_program_loop {
         read -p "Enter your choice : " users_choice
         printf "\nYou choose : %s\n\n" $users_choice
         
-        case $users_choice in
-            a)
+        case "$users_choice" in
+            "a")
                pull_all_repos
                ;;
-            b)
+            "b")
                add_all_commit_all_no_push
                ;;
-            B)
+            "B")
                add_all_commit_all_push_all
                ;;
-            c)
+            "c")
                show_status_of_all_repos
                ;;
-            d)
+            "d")
                display_git_directories
                ;;
-            e)
-               echo "NO OPTION HERE!"
-               ;;
-            f)
+            "w")
                display_git_directories_their_branches_and_their_status            
-               #add_all_commit_all_no_push
                ;;
-            
-            g)
+            "f")
                 cache_git_dits
                 ;;
-            q)
+            "q")
                 user_wants_to_quit="true"
                 ;;
             *)
@@ -98,7 +82,16 @@ function run_program_loop {
     
 }
 
-function cache_git_dits {
+
+# This lists all the functions in the script. (NEEDS TO BE FINISHED!)
+function show_options() # Show a list of functions
+{
+    grep "^function" $0
+}
+
+
+function cache_git_dits
+{
     local num_minutes
     read -p "Time in minutes to cashe the dits? : " num_minutes;
     
@@ -135,7 +128,10 @@ function populate_array {
 function display_git_directories {
     for git_directory in "${GIT_DIRS[@]}"
     do
-      echo "${git_directory}";
+
+      local string_cut_front="${git_directory#./}"
+      echo ${string_cut_front%/.*}
+      
     done
 }
 
@@ -167,7 +163,7 @@ function init_program {
     CALLED_FROM_DIR="$PWD";
     if [ -z "$1" ]
     then
-        COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="Wholesale commit...(next time add message to call!)";
+        COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="WHOLESALE COMMIT - ADD COMMIT MESSAGE NEXT TIME!"
     else
         COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="$1"
     fi
