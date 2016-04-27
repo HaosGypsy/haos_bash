@@ -82,16 +82,13 @@ function run_program_loop {
     
 }
 
-
 # This lists all the functions in the script. (NEEDS TO BE FINISHED!)
 function show_options() # Show a list of functions
 {
     grep "^function" $0
 }
 
-
-function cache_git_dits
-{
+function cache_git_dits {
     local num_minutes
     read -p "Time in minutes to cashe the dits? : " num_minutes;
     
