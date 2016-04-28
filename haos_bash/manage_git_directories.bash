@@ -61,7 +61,7 @@ function run_program_loop {
                add_all_commit_all_push_all
                ;;
             "c")
-               show_status_of_all_repos
+               cache_git_dits
                ;;
             "d")
                display_git_directories
@@ -70,7 +70,7 @@ function run_program_loop {
                display_git_directories_their_branches_and_their_status            
                ;;
             "f")
-                cache_git_dits
+               show_status_of_all_repos
                 ;;
             "q")
                 user_wants_to_quit="true"
