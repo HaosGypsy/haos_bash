@@ -1,5 +1,6 @@
 # Make git rememember passwords for 30 minutes.
 
+# ToDo: THIS NEEDS TO CHECK IF THE REPOSITORY IS ALREADY LOCAL!!
 # ToDo: This is dumb. Figure out how to abstract it create a config file.
 
 # v 0.21 - Added ui menu.
