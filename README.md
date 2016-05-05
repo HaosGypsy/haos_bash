@@ -17,3 +17,4 @@ THE BASH IS WHAT YOU MAKE OF IT...
 ToDo:
 
 * Seperate out general bash from VIP bash? 
+* Move this into home folder on C9.
