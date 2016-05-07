@@ -1,17 +1,28 @@
 # HAOS BASH - Spring 2016
 
-* Who?
-    * Haos Built with help from the interTubes.
-* What?
-    * A set of tools for getting things done.
-* Where?
-    * Living on Cloud9, i swam a DigitalOcean to Git my Hub on, and Bash it up! 
-* When?
-    * Spring 2016 while at Ewha.
-* Why?
-    * I need tools to get this party started...
-* How?
-    * Blood, Sweat, Tears, Cursing, Hacking, and GuFu.
+#### Who?
+* Haos Built with help from the interTubes.
+
+#### What?
+
+* Power Tools for getting code party done. : *use at your own risk!*
+    * ***STATUS:*** [Building in progress.]
+
+#### Where?
+
+* Live on Cloud9, swim DigitalOceans to GitHub a Bashed Haos! 
+
+#### When?
+
+* Spring 2016 while at Ewha.
+
+#### Why?
+
+* I need tools to get this party started...
+
+#### How?
+
+* Blood, Sweat, Tears, Cursing, Hacking, and GuFu.
 
 #### ToDo
 
