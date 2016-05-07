@@ -7,6 +7,8 @@ EOF
 
 # ToDo : Figure out if it is tracking and pushing all branches. (Pretty sure it is (5/2/16))
 
+# ToDo : Add viewing of remotes to options. 
+
 # ToDo : Offer to pull if push fails.
 
 # ToDo : Signal remote when script queries for username!
