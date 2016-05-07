@@ -17,7 +17,7 @@
 
 * Automate readme who, what, why, where, when, and how.
 * Finish menu script bits... ***```launchhaos.bash```***
-* Change the name thoughts: *Because codes' a party!*
+* Change the name thoughts: *Codes' a party!*
     * ***```throw_a_haos.bash```***
     * ***```launch_a_haos.bash```***
 
