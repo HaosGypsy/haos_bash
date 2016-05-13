@@ -67,10 +67,10 @@ function create_list_of_weeks {
 }
  
 
-date_to_start_from="3-7-16"
-time_of_class="14:00"
+date_to_start_from="3-2-16"
+time_of_class="12:30"
 number_of_weeks="15"
-name_of_class="SMART SOFTWARE PROJECT"
+name_of_class="Basic Electronics Engineering (36564-01)"
 directory_name="week_"
 
 count=1
