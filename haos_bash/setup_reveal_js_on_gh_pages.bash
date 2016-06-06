@@ -32,15 +32,14 @@ function setup_reveal_js_on_gh_pages() {
     
     git checkout -b gh-pages
     git add .
-    git commit -m "Used script to add reveal js to new pgs directory."
-    git push --all   
+    git commit -m "Script created gh-pages repo with reveal js."
     git push -u origin gh-pages
     
     cd $GOPATH
     say_goodbye "$remote_url"
 }
 
-function wtf(){
+function create_a_generic_index_file(){
 
 cat > index.html << EOF
 <!DOCTYPE html>
