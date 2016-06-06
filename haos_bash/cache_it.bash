@@ -1,5 +1,14 @@
 # Make git rememember passwords for 30 minutes.
-git config --global credential.helper 'cache --timeout=1800'
+
+if [ -z "$1" ]
+then
+    $time_to_cache_dits_for="1800"
+else
+    $time_to_cache_dits_for="$1"
+fi
+
+
+git config --global credential.helper "cache --timeout=$time_to_cache_dits_for"
 
 function explain() {
     printf "/n"

@@ -102,7 +102,7 @@ function prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_gith
     echo ""
     
     read -p "Enter the GitHub repository : " repo_to_put_reveal_in
-    read -p "Enter the GitHub repository : " name_for_repos_folder
+    read -p "Enter label for repo folder : " name_for_repos_folder
 
     setup_reveal_js_on_gh_pages "$repo_to_put_reveal_in" "$name_for_repos_folder"
 }
