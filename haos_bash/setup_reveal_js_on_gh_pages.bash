@@ -35,6 +35,35 @@ function setup_reveal_js_on_gh_pages() {
 EOF
 }
 
+create_index_files(){
+    echo "Creating basic index files."   
+}
+
+function create_a_generic_index_file(){
+
+    echo "creating html file"
+    echo "param 1 = $1"
+    echo "param 2 = $2"
+    echo $PWD    
+    local text_for_file"";
+    
+    text_for_file+='<!DOCTYPE html>/n';
+    text_for_file+="<html>/n";
+    text_for_file+="    <head>/n";
+    text_for_file+="        <title> </title>/n";
+    text_for_file+="    </head>/n";
+    text_for_file+="    <body>/n";
+    text_for_file+="    </body>/n";
+    text_for_file+="</html>/n";
+    
+
+
+
+    
+    printf "%s" "$text_for_file" > index.html
+    
+}
+
 function say_goodbye() {
     
     echo ""
@@ -66,12 +95,11 @@ function say_goodbye() {
     echo ""
     :<<EOF
     # the ever present ToDo items...
-EOF
+    echo ""
     read -n1 -r -p "Press any key to continue." not_used_key
     echo ""
-    echo ""
-    echo ""
-    
+EOF
+
     exit
 }
 
@@ -81,35 +109,54 @@ function prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_gith
     echo "Create a new repository and copy the repositories URL to your clipboard."
     echo "You can do that now, i'll wait here."
     
+:<<EOF
     read -p "Enter the GitHub repository : " repo_to_put_reveal_in
     read -p "Enter the GitHub repository : " name_for_repos_folder
-    
-:<<EOF
-    
-    setup_reveal_js_on_gh_pages "$repo_to_put_reveal_in" "$name_for_repos_folder"
-    
-    cd $GOPATH
-    cd $name_for_repos_folder
-    bash ../z_spring_2016_bash_toolset/haos_bash/append_the_basics_to_the_readme_file.bash 
-    clear
 EOF
+    repo_to_put_reveal_in="https://github.com/a-haos-at-ewha/build_a_haos_at_ewha.git"
+    name_for_repos_folder="build_a_haos_at_ewha"
+  
+
+    #setup_reveal_js_on_gh_pages "$repo_to_put_reveal_in" "$name_for_repos_folder"
+    
+    echo ""
+    echo ""
     echo ""
     cd $GOPATH
-    say_goodbye "$repo_to_put_reveal_in" "$name_for_repos_folder"
+    cd $name_for_repos_folder
+    #bash ../z_spring_2016_bash_toolset/haos_bash/append_the_basics_to_the_readme_file.bash 
+    #clear
+    echo ""
+    echo ""
+    echo ""
+    cd $GOPATH
+    cd $name_for_repos_folder
+    create_a_generic_index_file "Root" "Script Made Page."
+    cd $GOPATH
+    cd $name_for_repos_folder
+    cd pgs
+    create_a_generic_index_file "Sites Pages" "Index for the Sites Pages."
+
+    #cd $GOPATH
+    #say_goodbye "$repo_to_put_reveal_in" "$name_for_repos_folder"
 }
 
 cd $GOPATH
 #prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_github
 
+echo $github_url=""
+echo $folder_name=""
 
 if [[ ( -z "$1" ) && ( -z "$2" ) ]]
 then
-    prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_github
+    prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_github $github_url $folder_name
+    echo $github_url
+    echo $folder_name
 else
     setup_reveal_js_on_gh_pages "$1" "$2"
 fi
 
-say_goodbye "$1" "$2"
+#say_goodbye "$1" "$2"
 
 :<<EOF
 EOF
