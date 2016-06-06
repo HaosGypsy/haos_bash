@@ -4,15 +4,18 @@
 
 function setup_reveal_js_on_gh_pages() {
 
-:<<EOF
 
     remote_url=$1
     name_for_project_folder=$2
     
     git clone $remote_url $name_for_project_folder
+    
     cd $name_for_project_folder
+    create_a_generic_index_file "ROOT" "SCRIPT BUILT PAGE"
     mkdir pgs
     cd pgs
+    create_a_generic_index_file "PAGES" "SCRIPT BUILT PAGE"
+    
     git clone https://github.com/hakimel/reveal.js.git reveal_js
     cd reveal_js/
     rm -rf .git
@@ -32,36 +35,24 @@ function setup_reveal_js_on_gh_pages() {
     git commit -m "Used script to add reveal js to new pgs directory."
     git push --all   
     git push -u origin gh-pages
+    
+    cd $GOPATH
+    say_goodbye "$remote_url"
+}
+
+function wtf(){
+
+cat > index.html << EOF
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>$1</title>
+    </head>
+    <body>
+        $2
+    </body>
+</html>
 EOF
-}
-
-create_index_files(){
-    echo "Creating basic index files."   
-}
-
-function create_a_generic_index_file(){
-
-    echo "creating html file"
-    echo "param 1 = $1"
-    echo "param 2 = $2"
-    echo $PWD    
-    local text_for_file"";
-    
-    text_for_file+='<!DOCTYPE html>/n';
-    text_for_file+="<html>/n";
-    text_for_file+="    <head>/n";
-    text_for_file+="        <title> </title>/n";
-    text_for_file+="    </head>/n";
-    text_for_file+="    <body>/n";
-    text_for_file+="    </body>/n";
-    text_for_file+="</html>/n";
-    
-
-
-
-    
-    printf "%s" "$text_for_file" > index.html
-    
 }
 
 function say_goodbye() {
@@ -93,72 +84,33 @@ function say_goodbye() {
     echo "The main index for the reveal.js slides can be found at : $gh_pages_url/pgs/reveal_js/index.html"
     echo "An intro to reveal.js can be found at : $gh_pages_url/pgs/reveal_js/demo.html"
     echo ""
-    :<<EOF
-    # the ever present ToDo items...
+
     echo ""
     read -n1 -r -p "Press any key to continue." not_used_key
     echo ""
-EOF
 
     exit
 }
 
 function prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_github() {
-    echo "Hi! This script has been created and tested to work with a URL for a new empty GitHub repository."
-    echo "1 * Visit this URL : https://github.com/new"
+    echo "Hi! This script has been created and tested to work with a URL for a new, empty, GitHub repository."
+    echo ""
+    echo "Visit this URL : https://github.com/new"
+    echo ""
     echo "Create a new repository and copy the repositories URL to your clipboard."
+    echo ""
     echo "You can do that now, i'll wait here."
+    echo ""
     
-:<<EOF
     read -p "Enter the GitHub repository : " repo_to_put_reveal_in
     read -p "Enter the GitHub repository : " name_for_repos_folder
-EOF
-    repo_to_put_reveal_in="https://github.com/a-haos-at-ewha/build_a_haos_at_ewha.git"
-    name_for_repos_folder="build_a_haos_at_ewha"
-  
 
-    #setup_reveal_js_on_gh_pages "$repo_to_put_reveal_in" "$name_for_repos_folder"
-    
-    echo ""
-    echo ""
-    echo ""
-    cd $GOPATH
-    cd $name_for_repos_folder
-    #bash ../z_spring_2016_bash_toolset/haos_bash/append_the_basics_to_the_readme_file.bash 
-    #clear
-    echo ""
-    echo ""
-    echo ""
-    cd $GOPATH
-    cd $name_for_repos_folder
-    create_a_generic_index_file "Root" "Script Made Page."
-    cd $GOPATH
-    cd $name_for_repos_folder
-    cd pgs
-    create_a_generic_index_file "Sites Pages" "Index for the Sites Pages."
-
-    #cd $GOPATH
-    #say_goodbye "$repo_to_put_reveal_in" "$name_for_repos_folder"
+    setup_reveal_js_on_gh_pages "$repo_to_put_reveal_in" "$name_for_repos_folder"
 }
-
-cd $GOPATH
-#prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_github
-
-echo $github_url=""
-echo $folder_name=""
 
 if [[ ( -z "$1" ) && ( -z "$2" ) ]]
 then
-    prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_github $github_url $folder_name
-    echo $github_url
-    echo $folder_name
+    prompt_user_for_info_to_create_new_gh_pages_repo_with_reveal_js_at_github
 else
     setup_reveal_js_on_gh_pages "$1" "$2"
 fi
-
-#say_goodbye "$1" "$2"
-
-:<<EOF
-EOF
-
-# WISHLIST : Have it create a html file linking to all the decks.
