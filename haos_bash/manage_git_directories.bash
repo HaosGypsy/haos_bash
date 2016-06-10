@@ -140,10 +140,13 @@ function create_cloud9_manage_git_directories_script_commit {
     init_commit="${init_commit} Script committing function name : "
     local this_funs_name=$FUNCNAME
     init_commit="${init_commit}$FUNCNAME."
-  
+    
+    local commit_with_linebreaks=$'init_commit'
+    
+    
     # this line essentially, passes back our return variable.
     # FYI, best kept at the end of the function.
-    eval $return_commit="'$init_commit'"
+    eval $return_commit="'$commit_with_linebreaks'"
 }
 
 # source_a : http://www.linuxjournal.com/content/return-values-bash-functions
@@ -332,7 +335,7 @@ function add_all_commit_all_and_push_all_is {
             cd ..
             
             git add .
-            git commit -m "$'$commit_message'"
+            git commit -m "$commit_message"
             
             if [ "$1" == "true" ]
             then
