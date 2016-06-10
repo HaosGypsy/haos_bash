@@ -332,7 +332,7 @@ function add_all_commit_all_and_push_all_is {
             cd ..
             
             git add .
-            git commit -m '$commit_message'
+            git commit -m "$'$commit_message'"
             
             if [ "$1" == "true" ]
             then
