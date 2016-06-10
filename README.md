@@ -18,4 +18,7 @@ ToDo:
 
 * Seperate out general bash from VIP bash? 
 * Move this into home folder on C9.
+
+Done :
+
 * Make a script that puts a generic readme file in any empty folder.
