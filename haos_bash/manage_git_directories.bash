@@ -185,6 +185,7 @@ function ask_for_key_press_allow_quit {
 function populate_array {
     count=0;
     GIT_DIRS=()
+    
     while IFS= read -r -d $'\0' file; do
       let "count++"
       GIT_DIRS[$count]="$file"
@@ -243,12 +244,16 @@ function init_program {
     count=0;
     GIT_DIRS=();
     CALLED_FROM_DIR="$PWD";
+
+:<<'EOF'
+
     if [ -z "$1" ]
     then
         COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="WHOLESALE COMMIT - ADD COMMIT MESSAGE NEXT TIME!"
     else
         COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="$1"
     fi
+EOF
 }
 
 function print_a_bunch_of_blank_lines {
