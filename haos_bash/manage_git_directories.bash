@@ -76,7 +76,7 @@ function run_program_loop {
                ;;
             "B")
                #add_all_commit_all_push_all
-               add_all_commit_all_maybe_push_all "true"
+               add_all_commit_all_and_push_all_is "true"
                ;;
             "c")
                cache_git_dits
@@ -113,7 +113,7 @@ function run_latest_testing() # currently testing function
     echo "test starts."
     #echo "in (testing), \"result\"=$result"
     
-    add_all_commit_all_maybe_push_all
+    add_all_commit_all_and_push_all_is "true"
     
     #echo "in (testing), \"result\"=$result"
     echo "test stops."
@@ -310,30 +310,37 @@ function add_all_commit_all_no_push {
 # ToDo : Remove the duplication of action in the above and below functions.
 # 
 
-function add_all_commit_all_maybe_push_all {
+function add_all_commit_all_and_push_all_is {
     
-    local commit_message=""
-    create_cloud9_manage_git_directories_script_commit commit_message
-    
-    for git_directory in "${GIT_DIRS[@]}"
-    do
-      
-      echo ""
-      echo "* * * * * * * ** * * * * * * ** * * * * * * ** * * * * * * *"
-      echo ""
-      
-      
-      cd $git_directory;
-      cd ..
-     
-      git add .
-      git commit -m "$commit_message"
-      if [ -z "$1" ]
-      then
-        git push --all
-      fi
-      cd $CALLED_FROM_DIR;
-    done
+    if [ ! -z "$1" ]
+    then
+        local commit_message=""
+        create_cloud9_manage_git_directories_script_commit commit_message
+        
+        for git_directory in "${GIT_DIRS[@]}"
+        do
+            
+            echo ""
+            echo "* * * * * * * ** * * * * * * ** * * * * * * ** * * * * * * *"
+            echo ""
+            
+            
+            cd $git_directory;
+            cd ..
+            
+            git add .
+            git commit -m "$commit_message"
+            
+            if [ "$1" == "true" ]
+            then
+                git push --all
+            fi
+            
+            cd $CALLED_FROM_DIR;
+        done
+    else
+        echo "PROBLEM CALLING GIT $FUNCNAME"
+    fi
 }
 
 function show_status_of_all_repos {
