@@ -275,6 +275,9 @@ function pull_all_repos {
     done
 }
 
+
+:<<'EOF'
+
 # 'B'
 function add_all_commit_all_push_all {
     for git_directory in "${GIT_DIRS[@]}"
@@ -308,6 +311,7 @@ function add_all_commit_all_no_push {
 }
 # ToDo : Remove the duplication of action in the above and below functions.
 # 
+EOF
 
 function add_all_commit_all_and_push_all_is {
     
@@ -328,7 +332,7 @@ function add_all_commit_all_and_push_all_is {
             cd ..
             
             git add .
-            git commit -m "$commit_message"
+            git commit -m '$commit_message'
             
             if [ "$1" == "true" ]
             then
