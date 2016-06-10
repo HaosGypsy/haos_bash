@@ -72,11 +72,10 @@ function run_program_loop {
                pull_all_repos
                ;;
             "b")
-               add_all_commit_all_no_push
+               add_all_commit_all_and_push_all_is "true"
                ;;
             "B")
-               #add_all_commit_all_push_all
-               add_all_commit_all_and_push_all_is "true"
+               add_all_commit_all_and_push_all_is "false"
                ;;
             "c")
                cache_git_dits
@@ -104,9 +103,7 @@ function run_program_loop {
 }
 
 # This functions is used for script testing during debug, update, da-de-da, deet-da-dee. (NEEDS TO BE FINISHED!)
-
-function run_latest_testing() # currently testing function
-{
+function run_latest_testing() {
     #local result="result_var thinks, Woot_Woot!"
     #local test_var="no commit msg yet"
 
@@ -119,7 +116,6 @@ function run_latest_testing() # currently testing function
     echo "test stops."
 }
 
-# source_a: create_commit_message_finished_test
 function create_cloud9_manage_git_directories_script_commit {
     # We create a local return variable and assign it to param one.
     # FYI, it's best to just ignore this var until your ready to return something...
@@ -130,7 +126,7 @@ function create_cloud9_manage_git_directories_script_commit {
     
     local init_commit=""
     
-    init_commit="${init_commit}Script commit from Cloud9 VM(C9). C9 user : "
+    init_commit="${init_commit}Script commit from Cloud9 VM(C9).\nC9 user : "
     local cloudusers_name_full=$C9_FULLNAME
     init_commit="$init_commit$cloudusers_name_full."
     
@@ -155,8 +151,8 @@ function create_commit_message_finished_test {
 }
 
 # ToDo : ^2 This lists all the functions in the script. (NEEDS TO BE FINISHED!)
-function show_options() # Show a list of functions
-{
+ # Show a list of functions
+function show_options() {
     grep "^function" $0
 }
 
@@ -357,17 +353,13 @@ function show_status_of_all_repos {
 
 say_hello
 init_program
+
 if [ -z "$1" ]
 then
     echo "No param passed, running script loop."
     run_program_loop
-    
 else
-    echo "first param passed = $1"
-    
     run_program_loop "$1"
-    
-    
 fi
 
 :<<EOF
