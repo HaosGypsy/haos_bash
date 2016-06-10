@@ -89,13 +89,20 @@ function run_program_loop {
     
 }
 
+# source : http://www.linuxjournal.com/content/return-values-bash-functions
+function create_commit_message {
+    local commit_to_return="function create_commit_message inital commit message"
+    local  return_var=$1
+    eval $return_var="'$commit_to_return'"
+}
+
 # This functions is used for script testing during debug, update, da-de-da, deet-da-dee. (NEEDS TO BE FINISHED!)
 function run_latest_testing() # currently testing function
 {
     local test_var="no commit msg yet"
-    echo "in (testing), \"test_var"\=$test_var\n"
-    create_commit_message $test_var 
-    echo "$test_var"
+    echo "in (testing), \"test_var\"=$test_var"
+    create_commit_message result
+    echo $result
 }
 
 # ToDo : ^2 This lists all the functions in the script. (NEEDS TO BE FINISHED!)
@@ -225,11 +232,6 @@ function add_all_commit_all_push_all {
 }
 
 
-function create_commit_message {
-    local commit_to_return="$COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT"
-    return_var=$1
-    $return_var="WOOT-WOOT"
-}
 
 # ToDo : Remove the duplication of action in the above and below functions.
 # 
