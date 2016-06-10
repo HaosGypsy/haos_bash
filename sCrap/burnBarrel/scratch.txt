@@ -1,0 +1,80 @@
+APACHE_PID_FILE=/home/ubuntu/lib/apache2/run/apache2.pid
+MANPATH=/home/ubuntu/.nvm/versions/node/v4.4.5/share/man:/usr/local/rvm/rubies/ruby-2.3.0/share/man:/usr/local/man:/usr/local/share/man:/usr/share/man:/usr/local/rvm/man
+rvm_bin_path=/usr/local/rvm/bin
+C9_SHARED=/mnt/shared
+C9_FULLNAME=KoreaHaos
+GEM_HOME=/usr/local/rvm/gems/ruby-2.3.0
+NVM_CD_FLAGS=
+APACHE_RUN_USER=ubuntu
+SHELL=/bin/bash
+TERM=screen
+IRBRC=/usr/local/rvm/rubies/ruby-2.3.0/.irbrc
+SSH_CLIENT=::ffff:10.240.1.3 47146 22
+ISOUTPUTPANE=0
+NVM_PATH=/home/ubuntu/.nvm/versions/node/v4.4.5/lib/node
+C9_PORT=8080
+METEOR_IP=0.0.0.0
+MY_RUBY_HOME=/usr/local/rvm/rubies/ruby-2.3.0
+PHPRC=/home/ubuntu/workspace
+LC_ALL=C.UTF-8
+NVM_DIR=/home/ubuntu/.nvm
+USER=ubuntu
+LD_LIBRARY_PATH=~/.c9/local/lib
+_system_type=Linux
+rvm_path=/usr/local/rvm
+C9_UID=798985
+TMUX=/tmp/tmux-1000/cloud91.8,7190,0
+C9_IP=0.0.0.0
+rvm_prefix=/usr/local
+APACHE_LOG_DIR=/home/ubuntu/lib/apache2/log
+PATH=/home/ubuntu/.nvm/versions/node/v4.4.5/bin:/usr/local/rvm/gems/ruby-2.3.0/bin:/usr/local/rvm/gems/ruby-2.3.0@global/bin:/usr/local/rvm/rubies/ruby-2.3.0/bin:/mnt/shared/bin:/home/ubuntu/workspace/node_modules/.bin:/home/ubuntu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/shared/sbin:/opt/gitl:/opt/go/bin:/mnt/shared/c9/app.nw/bin:/usr/local/rvm/bin
+C9_USER=koreahaos
+HGUSER=KoreaHaos
+NVM_NODEJS_ORG_MIRROR=https://nodejs.org/dist
+PWD=/home/ubuntu/workspace
+APACHE_RUN_GROUP=ubuntu
+LANG=C
+NODE_PATH=/mnt/shared/lib/node_modules
+_system_arch=x86_64
+TMUX_PANE=%0
+_system_version=14.04
+C9_SH_EXECUTED=1
+rvm_version=1.27.0 (latest)
+HOME=/home/ubuntu
+SHLVL=4
+C9_PID=3326170
+GOROOT=/opt/go
+LANGUAGE=C.UTF-8
+C9_PROJECT=boilerplate_codebend37269_ewha_ssp
+LOGNAME=ubuntu
+C9_EMAIL=benjaminhaos@ewha.ac.kr
+GEM_PATH=/usr/local/rvm/gems/ruby-2.3.0:/usr/local/rvm/gems/ruby-2.3.0@global
+SSH_CONNECTION=::ffff:10.240.1.3 47146 ::ffff:172.17.36.203 22
+LESSOPEN=| /usr/bin/lesspipe %s
+GOPATH=/home/ubuntu/workspace
+NVM_BIN=/home/ubuntu/.nvm/versions/node/v4.4.5/bin
+EMAIL=benjaminhaos@ewha.ac.kr
+NVM_IOJS_ORG_MIRROR=https://iojs.org/dist
+PORT=8080
+METEOR_PORT=8080
+IP=0.0.0.0
+APACHE_LOCK_DIR=/home/ubuntu/lib/apache2/lock
+APACHE_RUN_DIR=/home/ubuntu/lib/apache2/run
+C9_HOSTNAME=boilerplate-codebend37269-ewha-ssp-koreahaos.c9users.io
+LESSCLOSE=/usr/bin/lesspipe %s %s
+RUBY_VERSION=ruby-2.3.0
+rvm_silence_path_mismatch_check_flag=1
+_system_name=Ubuntu
+BASH_FUNC__gnomeopen%%=() {  if [ -e "$@" ]; then
+ c9 "$@";
+ return;
+ fi;
+ command xdg-open "$@"
+}
+BASH_FUNC__xdgopen%%=() {  if [ -e "$@" ]; then
+ c9 "$@";
+ return;
+ fi;
+ command xdg-open "$@"
+}
+_=/usr/bin/printenv
