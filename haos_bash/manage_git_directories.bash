@@ -116,8 +116,10 @@ function run_latest_testing() {
     echo "test stops."
 }
 
+# ToDo : Fix this so the commit message has new lines.
+# Writing a temp file for the commit message seems like the best method.
 function create_cloud9_manage_git_directories_script_commit {
-    # We create a local return variable and assign it to param one.
+    # Create a local return variable and assign it to param one.
     # FYI, it's best to just ignore this var until your ready to return something...
     local  return_commit=$1
     
@@ -128,8 +130,7 @@ function create_cloud9_manage_git_directories_script_commit {
     
     init_commit="${init_commit}Script commit from Cloud9 VM(C9)."
     
-    init_commit="${init_commit}\n"
-    #init_commit="${init_commit}C9 user : "
+    init_commit="${init_commit}C9 user : "
     local cloudusers_name_full=$C9_FULLNAME
     init_commit="$init_commit$cloudusers_name_full."
     
@@ -140,13 +141,10 @@ function create_cloud9_manage_git_directories_script_commit {
     init_commit="${init_commit} Script committing function name : "
     local this_funs_name=$FUNCNAME
     init_commit="${init_commit}$FUNCNAME."
-    
-    local commit_with_linebreaks=$"$init_commit"
-    
-    
+ 
     # this line essentially, passes back our return variable.
     # FYI, best kept at the end of the function.
-    eval $return_commit="'$commit_with_linebreaks'"
+    eval $return_commit="'$init_commit'"
 }
 
 # source_a : http://www.linuxjournal.com/content/return-values-bash-functions
