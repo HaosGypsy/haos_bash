@@ -75,7 +75,8 @@ function run_program_loop {
                add_all_commit_all_no_push
                ;;
             "B")
-               add_all_commit_all_push_all
+               #add_all_commit_all_push_all
+               add_all_commit_all_maybe_push_all "true"
                ;;
             "c")
                cache_git_dits
@@ -287,13 +288,12 @@ function add_all_commit_all_push_all {
     done
 }
 
-
 # ToDo : Remove the duplication of action in the above and below functions.
 # 
+
 function add_all_commit_all_no_push {
     
     local commit_message=""
-    
     create_cloud9_manage_git_directories_script_commit commit_message
     
     for git_directory in "${GIT_DIRS[@]}"
@@ -303,6 +303,28 @@ function add_all_commit_all_no_push {
      
       git add .
       git commit -m "$commit_message"
+      cd $CALLED_FROM_DIR;
+    done
+}
+# ToDo : Remove the duplication of action in the above and below functions.
+# 
+
+function add_all_commit_all_maybe_push_all {
+    
+    local commit_message=""
+    create_cloud9_manage_git_directories_script_commit commit_message
+    
+    for git_directory in "${GIT_DIRS[@]}"
+    do
+      cd $git_directory;
+      cd ..
+     
+      git add .
+      git commit -m "$commit_message"
+      if [ -z "$1" ]
+      then
+        git push --all
+      fi
       cd $CALLED_FROM_DIR;
     done
 }
