@@ -93,9 +93,9 @@ function run_program_loop {
 
 # source_a
 function create_cloud9_manage_git_directories_script_commit {
-    local commit_to_return="function create_cloud9_manage_git_directories_script_commit inital commit message"
     local  return_var=$1
-    return_var="My new committ msg!"
+    #local commit_to_return="function create_cloud9_manage_git_directories_script_commit inital commit message"
+    local initial_commit_to_return="My initial commit msg.!"
     eval $return_var="'$commit_to_return'"
 }
 
