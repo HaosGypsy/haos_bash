@@ -290,10 +290,9 @@ function add_all_commit_all_push_all {
     do
       cd $git_directory;
       cd ..
-     
-      git add .
-      git commit -m "test"
-      git push --all
+      #git add .
+      #git commit -m "test"
+      #git push --all
       cd $CALLED_FROM_DIR;
     done
 }
@@ -332,7 +331,7 @@ function show_status_of_all_repos {
 }
 
 say_hello
-#init_program "$1"
+init_program
 if [ -z "$1" ]
 then
     echo "No param passed, running script loop."
