@@ -93,7 +93,7 @@ function run_program_loop {
 function run_latest_testing() # currently testing function
 {
     local test_var="no commit msg yet"
-    echo "in (testing), \"test_var=$test_var"
+    echo "in (testing), \"test_var"\=$test_var\n"
     create_commit_message $test_var 
     echo "$test_var"
 }
