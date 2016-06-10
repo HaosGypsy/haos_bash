@@ -76,6 +76,9 @@ function run_program_loop {
             "f")
                show_status_of_all_repos
                 ;;
+            "t")
+               run_latest_testing
+                ;;
             "q")
                 user_wants_to_quit="true"
                 ;;
@@ -86,7 +89,16 @@ function run_program_loop {
     
 }
 
-# This lists all the functions in the script. (NEEDS TO BE FINISHED!)
+# This functions is used for script testing during debug, update, da-de-da, deet-da-dee. (NEEDS TO BE FINISHED!)
+function run_latest_testing() # currently testing function
+{
+    local test_var="no commit msg yet"
+    echo "in (testing), \"test_var=$test_var"
+    create_commit_message $test_var 
+    echo "$test_var"
+}
+
+# ToDo : ^2 This lists all the functions in the script. (NEEDS TO BE FINISHED!)
 function show_options() # Show a list of functions
 {
     grep "^function" $0
@@ -198,6 +210,7 @@ function pull_all_repos {
     done
 }
 
+# 'B'
 function add_all_commit_all_push_all {
     for git_directory in "${GIT_DIRS[@]}"
     do
@@ -211,8 +224,15 @@ function add_all_commit_all_push_all {
     done
 }
 
-# ToDo : Remove the duplication of action in the above and below functions.
 
+function create_commit_message {
+    local commit_to_return="$COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT"
+    return_var=$1
+    $return_var="WOOT-WOOT"
+}
+
+# ToDo : Remove the duplication of action in the above and below functions.
+# 
 function add_all_commit_all_no_push {
     for git_directory in "${GIT_DIRS[@]}"
     do
