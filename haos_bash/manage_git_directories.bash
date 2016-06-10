@@ -290,13 +290,12 @@ function add_all_commit_all_push_all {
     do
       cd $git_directory;
       cd ..
-      #git add .
-      #git commit -m "test"
-      #git push --all
+      git add .
+      git commit -m "test"
+      git push --all
       cd $CALLED_FROM_DIR;
     done
 }
-
 
 
 # ToDo : Remove the duplication of action in the above and below functions.
