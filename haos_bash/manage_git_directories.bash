@@ -44,8 +44,8 @@ EOF
 # ToDo : Abstract (is that the right word?) out the switch statement into a menu system.
 
 function run_program_loop {
-    #populate_array
-    populate_array -q
+    populate_array
+    #populate_array -q
     
     local users_choice
     local user_wants_to_quit="false"
@@ -101,8 +101,6 @@ function run_program_loop {
     done
     
 }
-
-
 
 # This functions is used for script testing during debug, update, da-de-da, deet-da-dee. (NEEDS TO BE FINISHED!)
 
@@ -289,7 +287,7 @@ function add_all_commit_all_push_all {
       cd ..
      
       git add .
-      git commit -m "$COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT"
+      git commit -m "test"
       git push --all
       cd $CALLED_FROM_DIR;
     done
