@@ -107,14 +107,15 @@ function run_program_loop {
 
 function run_latest_testing() # currently testing function
 {
-    local result="result_var thinks, Woot_Woot!"
-    local test_var="no commit msg yet"
+    #local result="result_var thinks, Woot_Woot!"
+    #local test_var="no commit msg yet"
 
-    echo "in (testing), \"result\"=$result"
     echo "test starts."
-    create_cloud9_manage_git_directories_script_commit result
-    echo "in (testing), \"result\"=$result"
-
+    #echo "in (testing), \"result\"=$result"
+    
+    add_all_commit_all_maybe_push_all
+    
+    #echo "in (testing), \"result\"=$result"
     echo "test stops."
 }
 
