@@ -244,16 +244,6 @@ function init_program {
     count=0;
     GIT_DIRS=();
     CALLED_FROM_DIR="$PWD";
-
-:<<'EOF'
-
-    if [ -z "$1" ]
-    then
-        COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="WHOLESALE COMMIT - ADD COMMIT MESSAGE NEXT TIME!"
-    else
-        COMMIT_MESSAGE_FOR_HAOS_manage_git_directories_SCRIPT="$1"
-    fi
-EOF
 }
 
 function print_a_bunch_of_blank_lines {
