@@ -317,6 +317,12 @@ function add_all_commit_all_maybe_push_all {
     
     for git_directory in "${GIT_DIRS[@]}"
     do
+      
+      echo ""
+      echo "* * * * * * * ** * * * * * * ** * * * * * * ** * * * * * * *"
+      echo ""
+      
+      
       cd $git_directory;
       cd ..
      
