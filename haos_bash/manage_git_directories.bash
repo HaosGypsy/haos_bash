@@ -128,7 +128,7 @@ function create_cloud9_manage_git_directories_script_commit {
     
     init_commit="${init_commit}Script commit from Cloud9 VM(C9)."
     
-    init_commit="$init_commit"'\n'
+    init_commit="$init_commit"\n
     #init_commit="${init_commit}C9 user : "
     local cloudusers_name_full=$C9_FULLNAME
     init_commit="$init_commit$cloudusers_name_full."
