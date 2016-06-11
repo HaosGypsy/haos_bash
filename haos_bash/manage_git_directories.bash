@@ -45,7 +45,7 @@ EOF
 
 function run_program_loop() {
     local users_choice
-    local user_wants_to_quit="false"
+    user_wants_to_quit="false"
     local run_it_quick="false"
     
     if [ ! -z "$1" ]
@@ -126,6 +126,7 @@ function offer_and_execute_options_available() {
     
     else
         REPLY="$1"
+        user_wants_to_quit="true"
     fi
     
     if [ ! -z "${key_letter_and_function_call_map[$REPLY]}" ]
