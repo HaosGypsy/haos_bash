@@ -59,7 +59,7 @@ function run_program_loop() {
         then
             offer_and_execute_options_available
         else
-            echo
+            offer_and_execute_options_available "$1"
         fi
     done
     
@@ -141,7 +141,7 @@ function offer_and_execute_options_available() {
         fi
 
     else
-        echo "Huh? That does not seem to be a valid choice!"
+        echo "Huh? You entered $REPLY, that does not seem to be a valid choice!"
     fi
     
     read -p "return to cont : " varnotuse
@@ -279,6 +279,7 @@ function p_pull_all_repos() {
       cd $CALLED_FROM_DIR;
     done
 }
+
 function s_show_status_of_all_repos() {
     for git_directory in "${GIT_DIRS[@]}"
     do
@@ -294,7 +295,6 @@ function s_show_status_of_all_repos() {
 function x_exit_program() {
     user_wants_to_quit="true"
 }
-
 
 function say_hello() {
     echo "Work with git directories!"
@@ -360,7 +360,6 @@ function add_all_commit_all_and_push_all_is() {
 
 
 say_hello
-
 init_program
 
 if [ -z "$1" ]
