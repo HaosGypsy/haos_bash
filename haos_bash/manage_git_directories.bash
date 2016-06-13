@@ -212,7 +212,11 @@ function populate_array() {
     
     if [ -z "$1" ]
     then
+        clear
+        echo
         echo "Found $count git directories!"
+        echo
+        
         d_display_git_directories
     else
         case "$1" in
