@@ -9,8 +9,19 @@ function auth_user() {
 }
 
 function run_loop() {
-    echo "Program loop started"   
-    echo "Program loop done"   
+    
+    local user_wants_to_continue="true"
+    while [ "$user_wants_to_continue" == "true" ]
+    do
+        read -p "Continue? (y/n) : " -n 1 -r
+        echo
+        if [[ $REPLY =~ ^[Nn]$ ]]
+        then
+            user_wants_to_continue="false"
+        else
+            echo "Doing loop thing"
+        fi
+    done
 }
 
 function display_user_status() {
@@ -32,6 +43,11 @@ function init() {
 display_user_status
 init
 display_user_status
+
+
+
+
+
 
 #auth_user
 #run_loop
