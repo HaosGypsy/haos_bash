@@ -1,3 +1,23 @@
+: <<'EndOfBlockComment'
+
+  This script gets the haos bash script collection started and allows the caller
+to select and run scripts.
+
+WARNING : None of this is tested with anything resembling regularity.
+
+USE AT YOUR OWN RISK!!
+
+EndOfBlockComment
+
+: << 'TheToDoList'
+
+ToDo : figure out how to make it a bit safer?
+ToDo : Create a find the haos bash function.
+ToDo : Set up the intial clickable to offer choices on type of haos bash?
+ToDo : 
+
+TheToDoList
+
 function init() {
     clear
     if [ -d "haos_bash" ]
@@ -11,15 +31,18 @@ function init() {
 
 function explain_what_can_be_done() {
     
-    local directories_and_files_in_current_directory=($($ls))
+    local directories_and_files_in_current_directory=($(ls))
     declare -a haos_bash_files_in_current_directory;
 
     local count_of_dir_and_files=0;
     local count_of_haos_bash_files=0;
     
+    echo "$directories_and_files_in_current_directory"
+    
     for dir_or_file in "${directories_and_files_in_current_directory[@]}"
     
     do
+        #echo "$dir_or_file"
         if [[ $dir_or_file == *"_haos.bash" ]]
         then
             haos_bash_files_in_current_directory[$count_of_haos_bash_files]="$dir_or_file"
@@ -64,7 +87,6 @@ function explain_what_can_be_done() {
                 printf "\n"
                 
                 # RUN THE FILE!
-                #bash ${haos_bash_files_in_current_directory[$users_choice]};
                 bash ${haos_bash_files_in_current_directory[$users_choice]};
 
                 printf "\n->%s<- : COMPLETED." "${haos_bash_files_in_current_directory[$users_choice]}";

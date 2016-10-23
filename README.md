@@ -1,6 +1,6 @@
-# Spring 2016 BASH Toolset
+# Haos BASH Toolset V 0.2
 
-Some BASH scripts i made while studying at Ewha W. During the Spring 2016 semester.
+Some BASH scripts i am using.
 
 (in progress!)
 
